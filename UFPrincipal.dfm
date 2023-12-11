@@ -11,15 +11,34 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   Menu = MainMenu1
-  OldCreateOrder = False
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
     Left = 64
     Top = 464
     Width = 3
     Height = 13
+  end
+  object Label2: TLabel
+    Left = 368
+    Top = 312
+    Width = 31
+    Height = 13
+    Caption = 'Label2'
+  end
+  object Label3: TLabel
+    Left = 24
+    Top = 357
+    Width = 41
+    Height = 13
+    Caption = 'Nro Filas'
+  end
+  object Label4: TLabel
+    Left = 151
+    Top = 357
+    Width = 66
+    Height = 13
+    Caption = 'Nro Columnas'
   end
   object SGMatriz: TStringGrid
     Left = 24
@@ -70,6 +89,29 @@ object frmPrincipal: TfrmPrincipal
     Width = 177
     Height = 21
     TabOrder = 3
+  end
+  object nroRow: TEdit
+    Left = 24
+    Top = 376
+    Width = 121
+    Height = 21
+    TabOrder = 4
+  end
+  object nroCol: TEdit
+    Left = 151
+    Top = 376
+    Width = 121
+    Height = 21
+    TabOrder = 5
+  end
+  object Button1: TButton
+    Left = 24
+    Top = 416
+    Width = 81
+    Height = 25
+    Caption = 'Redimensionar'
+    TabOrder = 6
+    OnClick = Button1Click
   end
   object MainMenu1: TMainMenu
     Left = 312

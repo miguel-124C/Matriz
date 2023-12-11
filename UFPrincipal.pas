@@ -30,6 +30,12 @@ type
     BuscarSalida1: TMenuItem;
     InsertarColumna1: TMenuItem;
     MatrizRedonda1: TMenuItem;
+    nroRow: TEdit;
+    nroCol: TEdit;
+    Button1: TButton;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     procedure ScrollBar1Change(Sender: TObject);
     procedure ScrollBar2Change(Sender: TObject);
     procedure CargarMatriz1Click(Sender: TObject);
@@ -44,6 +50,7 @@ type
     procedure BuscarSalida1Click(Sender: TObject);
     procedure InsertarColumna1Click(Sender: TObject);
     procedure MatrizRedonda1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     M : Matriz;
@@ -74,6 +81,17 @@ begin
     Begin
         Label1.Caption:='No se Encuentra el digito';
     End;
+end;
+
+procedure TfrmPrincipal.Button1Click(Sender: TObject);
+var nRow, nCol: Word;
+begin
+    nRow := StrToInt(nroRow.Text);
+    nCol := StrToInt(nroCol.Text);
+    M.Redimensionar(nRow, nCol);
+
+    SGMatriz.RowCount := nRow;
+    SGMatriz.ColCount := nCol;
 end;
 
 procedure TfrmPrincipal.c1Click(Sender: TObject);
