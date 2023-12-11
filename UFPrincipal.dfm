@@ -171,6 +171,10 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'examen'
         OnClick = examen1Click
       end
+      object DelColumnRepeat1: TMenuItem
+        Caption = 'DelColumnRepeat'
+        OnClick = DelColumnRepeat1Click
+      end
     end
   end
 end

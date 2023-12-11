@@ -36,6 +36,7 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    DelColumnRepeat1: TMenuItem;
     procedure ScrollBar1Change(Sender: TObject);
     procedure ScrollBar2Change(Sender: TObject);
     procedure CargarMatriz1Click(Sender: TObject);
@@ -51,6 +52,7 @@ type
     procedure InsertarColumna1Click(Sender: TObject);
     procedure MatrizRedonda1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure DelColumnRepeat1Click(Sender: TObject);
   private
     { Private declarations }
     M : Matriz;
@@ -92,6 +94,7 @@ begin
 
     SGMatriz.RowCount := nRow;
     SGMatriz.ColCount := nCol;
+
 end;
 
 procedure TfrmPrincipal.c1Click(Sender: TObject);
@@ -125,6 +128,18 @@ begin
         for J := 1 to M.Columnas do
             M.ModElement(I,J,Random(9));
 
+end;
+
+procedure TfrmPrincipal.DelColumnRepeat1Click(Sender: TObject);
+var i, j: word;
+begin
+  M.delColRepeat;
+
+  SGMatriz.RowCount:=M.Filas;
+      SGMatriz.ColCount:=M.Columnas;
+      for I := 1 to M.Filas do
+        for J := 1 to M.Columnas do
+            SGMatriz.Cells[J-1,I-1]:=FloatToStr(M.ObtElement(I,J));
 end;
 
 procedure TfrmPrincipal.examen1Click(Sender: TObject);

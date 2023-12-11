@@ -39,6 +39,8 @@ Type
             Procedure MatrizenRedondomas1;  // redondea toda la matriz ni bien termina
                                             // sigue con el numero sumado 1
 
+            procedure delColRepeat;
+            function verificarColRepeat( nColActual, nColVerificar: word ): boolean;
 
 
     End;
@@ -164,9 +166,9 @@ begin
       for J := C to NroColumnas-1 do
         for I := 1 to NroFilas do
           Celdas[i,j]:=Celdas[i,j+1];
-      Dec(NroFilas);
+      Dec(NroColumnas);
      End
-     Else raise Exception.Create('Fila Invalida');
+     Else raise Exception.Create('Columna Invalida');
 end;
 
 //----------------------------------------------------------------------------------------------------
@@ -366,5 +368,41 @@ begin
 
 end;
 
+//------------------------------------------------------------------------------------------------------------------
+function Matriz.verificarColRepeat(nColActual, nColVerificar: word ): Boolean;
+var i, count: integer;
+begin
+    count := 0;
+      for I := 1 to NroFilas do
+      begin
+          if Celdas[i,nColActual] = Celdas[i,nColVerificar] then
+          begin
+            inc(count);
+          end;
+      end;
+
+    result:= count = NroFilas;
+end;
+
+//------------------------------------------------------------------------------------------------------------------
+procedure Matriz.delColRepeat;
+var i, j, count: word;
+begin
+     for J := 1 to NroColumnas - 1 do
+     begin
+        i := j + 1;
+        while i <= NroColumnas do
+        begin
+          if verificarColRepeat(J, I) = true then
+          begin
+            DelColumna(I);
+          end else
+          begin
+            i := i + 1;
+          end;
+        end;
+     end;
+
+end;
 
 end.
